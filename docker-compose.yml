@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  node:
-    image: node:latest
-    container_name: node
-    working_dir: '/var/www/html'
-    volumes: ['./:/var/www/html']
-    command: tail -F anything
