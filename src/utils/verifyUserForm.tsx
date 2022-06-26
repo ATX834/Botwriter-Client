@@ -1,5 +1,5 @@
 export const passwordsMatch = (pass: string, confirm: string): boolean => {
-  return pass === confirm ? true : false;
+  return pass === confirm;
 };
 
 export const emailContainsAt = (email: string | undefined) => {

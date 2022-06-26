@@ -18,7 +18,7 @@ export default function WrittableText({
 }) {
   return (
     <Text
-      backgroundColor="yellow"
+      // backgroundColor="yellow"
       noOfLines={areaNbofLines}
     >
       {input.split("").map((char, index) => {

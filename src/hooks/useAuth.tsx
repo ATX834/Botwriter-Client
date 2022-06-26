@@ -52,7 +52,7 @@ export function AuthProvider({
       setUser({
         email: data?.getProfile.email,
         id: data?.getProfile.id,
-        firstname: data?.getProfile.firstname,
+        firstname: data.getProfile.firstname,
         lastname: data?.getProfile.lastname,
       });
     }
