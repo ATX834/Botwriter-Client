@@ -31,3 +31,8 @@
     opacity: 0;
   }
 }
+
+.Badge span {
+  border-radius: 4px;
+  background-color: black;
+}
