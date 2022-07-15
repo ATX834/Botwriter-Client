@@ -7,8 +7,9 @@ import {
   Input,
   Button,
   ModalHeader,
+  FormErrorMessage,
 } from "@chakra-ui/react";
-import { KeyboardEvent, MutableRefObject, useRef } from "react";
+import { KeyboardEvent, MutableRefObject, useRef, useState } from "react";
 
 function ModalInput({
   isOpen,
@@ -20,6 +21,7 @@ function ModalInput({
   onClose: () => void;
 }) {
   const inputRef = useRef() as MutableRefObject<HTMLInputElement>;
+  const [error, setError] = useState("")
   const handleKeypress = (e: KeyboardEvent) => {
     if (e.key === "Enter") {
       handleSubmit();
@@ -28,8 +30,14 @@ function ModalInput({
 
   const handleSubmit = () => {
     if (inputRef.current) {
-      setValue(inputRef.current.value);
-      onClose();
+      if(inputRef.current.value) {
+        setValue(inputRef.current.value);
+        setError("")
+        onClose();
+      }
+      else {
+        setError("Fill the input field")
+      }
     }
   };
 
@@ -44,6 +52,7 @@ function ModalInput({
           <ModalHeader />
           <ModalBody>
             <Input ref={inputRef} onKeyPress={handleKeypress} />
+            {error && <FormErrorMessage>{error}</FormErrorMessage>}
           </ModalBody>
 
           <ModalFooter></ModalFooter>

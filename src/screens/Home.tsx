@@ -1,12 +1,9 @@
-import React from "react";
-
-
 export default function Home() {
 
 
   return (
     <>
-      <h1>Welcome to the GenLDM</h1>
+      <h1>Welcome to BotWriter</h1>
     </>
   );
 }

@@ -55,7 +55,6 @@ export default function UserForm({
   const [confirmPass, setConfirmPass]: [string, Function] = useState("");
 
   const [loading, setLoading] = useState(false);
-  // const { onSubmitLogin, onSubmitSignup } = useOnSubmit(setLoading);
 
   const {
     login,
@@ -138,10 +137,6 @@ export default function UserForm({
     }
   };
 
-  useEffect(() => {
-    console.log("action", action);
-    console.log("SignActions.signup", SignActions.signup);
-  }, []);
   const onSubmitReset = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -370,15 +365,6 @@ export default function UserForm({
                   case SignActions.resend:
                     onSubmitResend(e);
                     break;
-                  // onSubmitSignup(
-                  //   e,
-                  //   user,
-                  //   password,
-                  //   confirmPass,
-                  //   setUser,
-                  //   setPassword,
-                  //   setConfirmPass
-                  // );
                 }
               }}
             >

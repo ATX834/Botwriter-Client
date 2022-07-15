@@ -1,5 +1,4 @@
 import { Container, Flex } from "@chakra-ui/react";
-import React from "react";
 import { useAuth } from "../hooks/useAuth";
 import useWindowDimensions from "../hooks/useWindowsDimensions";
 import Sidebar from "./Sidebar";
@@ -17,7 +16,7 @@ function MainBody({ children }: { children: JSX.Element | JSX.Element[] }) {
       color="text.main"
     >
       {isLogged && <Sidebar />}
-      <Container maxW="2xl" centerContent p="10">
+      <Container maxW="container.xl" centerContent py="10" >
         {children}
       </Container>
     </Flex>

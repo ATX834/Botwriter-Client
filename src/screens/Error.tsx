@@ -1,5 +1,4 @@
 import { Text } from "@chakra-ui/react";
-import React from "react";
 import createError from "http-errors";
 
 function Error({ error }: { error: number }) {

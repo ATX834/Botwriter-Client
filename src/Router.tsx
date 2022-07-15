@@ -13,6 +13,8 @@ import Confirm from "./screens/User/Confirm";
 import Reset from "./screens/User/Reset";
 import Resend from "./screens/User/Resend";
 import Forgot from "./screens/User/Forgot";
+import CreateSampleLetter from "./screens/SampleLetter/CreateSampleLetter";
+import GenerateLetter from "./screens/SampleLetter/GenerateLetter";
 
 export default function Router(): JSX.Element {
   const { isLogged } = useAuth();
@@ -43,6 +45,18 @@ export default function Router(): JSX.Element {
             <Route
               path="/dashboard"
               element={isLogged ? <Dashboard /> : <Navigate to="/" replace />}
+            />
+            <Route
+              path="/sample-letter/new"
+              element={
+                isLogged ? <CreateSampleLetter /> : <Navigate to="/" replace />
+              }
+            />
+            <Route
+              path="/generate"
+              element={
+                isLogged ? <GenerateLetter /> : <Navigate to="/" replace />
+              }
             />
             <Route
               path="/signup"

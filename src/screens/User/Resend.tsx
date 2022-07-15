@@ -1,4 +1,3 @@
-import React from "react";
 import UserForm from "../../components/UserForm";
 import { SignActions } from "../../enum/SignActions";
 

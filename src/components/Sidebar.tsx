@@ -1,18 +1,12 @@
-import React, { useState } from "react";
-import { PhoneIcon } from "@chakra-ui/icons";
-import {
-  Button,
-  ButtonGroup,
-  Circle,
-  HStack,
-  Stack,
-  VStack,
-  Text
-} from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { ButtonGroup, Stack } from "@chakra-ui/react";
+import { TiPen } from "react-icons/ti";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { GiSewingMachine } from "react-icons/gi";
+import SidebarButton from "./SidebarButton";
 
 export default function Sidebar() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   return (
     <>
       <Stack
@@ -24,24 +18,26 @@ export default function Sidebar() {
         }}
         bg="secondary.main"
       >
-        <ButtonGroup py="1" px="2">
+        <ButtonGroup>
           <Stack>
-            <Button color="primary.main" variant="link">
-              <HStack>
-                <Circle  size="40px" bg="primary.main" color="text.main">
-                  <PhoneIcon />
-                </Circle>
-                <Link  to="/dashboard">{show ? <Text mx='2'>Dashboard</Text> : ""}</Link>
-              </HStack>
-            </Button>
-            <Button color="primary.main" variant="link">
-              <HStack>
-                <Circle size="40px" bg="primary.main" color="text.main">
-                  <PhoneIcon />
-                </Circle>
-              </HStack>
-              <Link to="/dashboard">{show ? <Text mx='2'>Dashboard</Text> : ""}</Link>
-            </Button>
+            <SidebarButton
+              show={show}
+              CustomIcon={MdOutlineSpaceDashboard}
+              path="/dashboard"
+              text="Dashboard"
+            />
+            <SidebarButton
+              show={show}
+              CustomIcon={TiPen}
+              path="/sample-letter/new"
+              text="Create sample letter"
+            />
+            <SidebarButton
+              show={show}
+              CustomIcon={GiSewingMachine}
+              path="/generate"
+              text="Generate letter"
+            />
           </Stack>
         </ButtonGroup>
       </Stack>

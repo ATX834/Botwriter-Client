@@ -59,7 +59,8 @@ export function AuthProvider({
   };
 
   useEffect(() => {
-    updateContext();
+    updateContext()
+    
   }, [localStorage.getItem("token")]);
 
   const login = async (

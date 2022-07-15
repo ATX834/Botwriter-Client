@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
-import { Heading, Text, useToast } from "@chakra-ui/react";
+import { Heading, useToast } from "@chakra-ui/react";
 import "../theme/styles.css";
-import TextEditor from "../components/TextEditor";
 
 export default function Dashboard() {
   const [token, setToken]: [string, Function] = useState("");
@@ -10,7 +9,8 @@ export default function Dashboard() {
   const toast = useToast();
 
   useEffect(() => {
-    if (localStorage.getItem("token")) {
+
+    if (document.readyState === "complete") {
       setToken(localStorage.getItem("token"));
       toast({
         title: `Welcome back ${user.firstname} ${user.lastname} !`,
@@ -25,8 +25,6 @@ export default function Dashboard() {
   return (
     <>
       <Heading>Dashboard</Heading>
-      <TextEditor />
-      {user && user.email && <Text>Votre email: {user.email} !</Text>}
     </>
   );
 }
