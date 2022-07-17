@@ -8,8 +8,10 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+const apiUrl = process.env.NODE_ENV === "production" ? "https://api.bot-writer.com" : "http://localhost:4000";
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:4000/graphql",
+  uri: `${apiUrl}/graphql`,
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -23,7 +25,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000",
+  uri: apiUrl,
   cache: new InMemoryCache(),
   link: authLink.concat(httpLink),
 });
