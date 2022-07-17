@@ -5,7 +5,7 @@
   "license": "ISC",
   "description": "",
   "main": "public/electron.js",
-  "homepage": ".",
+  "homepage": "/",
   "scripts": {
     "electron:start": "npm run transpile && npm run electron:dev",
     "ts:build": "tsc electron/main.ts  --esModuleInterop true; mv electron/main.js public/electron.js",
