@@ -9,6 +9,5 @@ RUN npm install
 
 COPY public public
 COPY src src
-COPY server.js server.js
 
-CMD npm run server
+CMD npm start

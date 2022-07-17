@@ -13,7 +13,8 @@
     "electron:dev": "concurrently \"cross-env BROWSER=none npm run react:start\" \"wait-on http://localhost:3000 && tsc -p electron & electron .\"",
     "dist": "npm run transpile && electron-builder -c.extraMetadata.main=build/electron.js",
     "start": "react-scripts start",
-    "react:build": "react-scripts build",
+    "build": "react-scripts build",
+    "server": "npm run build && node server.js",
     "react:test": "react-scripts test",
     "react:eject": "react-scripts eject"
   },
