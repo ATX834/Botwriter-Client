@@ -23,7 +23,7 @@ import {
   GENERATE_PDF,
 } from "../../graphql/mutations/SampleLetter";
 
-const API_URL = "http://localhost:4000";
+const apiUrl = process.env.NODE_ENV === "production" ? "https://api.bot-writer.com" : "http://localhost:4000";
 
 function GenerateLetter() {
   const [dropdown, setDropdown] = useState(false);
@@ -196,7 +196,7 @@ function GenerateLetter() {
                   });
                   const filename = data.generatePdf;
 
-                  window.location.replace(`${API_URL}/files/${filename}`);
+                  window.location.replace(`${apiUrl}/files/${filename}`);
                 }}
               >
                 Download
